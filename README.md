@@ -21,7 +21,7 @@ Production-style Agentic AI Assistant built with:
 
 ## Architecture
 
-![Architecture](screenshots/architecture.png)
+![Architecture](ARCHITECTURE.md)
 
 # End-to-End Execution Example
 
