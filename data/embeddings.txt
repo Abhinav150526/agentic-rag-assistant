@@ -1,0 +1,9 @@
+Embeddings are numerical representations of text.
+
+Machine learning models cannot directly understand text, so text is converted into vectors.
+
+Sentence Transformers are commonly used to generate embeddings.
+
+Similar pieces of text produce embeddings that are close together in vector space.
+
+Embeddings are the foundation of semantic search and RAG applications.

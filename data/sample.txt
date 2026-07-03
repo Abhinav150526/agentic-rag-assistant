@@ -1,0 +1,11 @@
+RAG stands for Retrieval-Augmented Generation.
+
+RAG has two main steps: ingestion and retrieval.
+
+In ingestion, documents are loaded, split into chunks, converted into embeddings, and stored in a vector database.
+
+In retrieval, the user question is converted into an embedding, compared with stored document embeddings, and the most relevant chunks are returned.
+
+FAISS is a vector database used for similarity search.
+
+Sentence Transformers can convert text into embeddings.

@@ -1,0 +1,9 @@
+FAISS stands for Facebook AI Similarity Search.
+
+FAISS is a vector database used for similarity search.
+
+It stores embeddings and helps retrieve the most relevant information based on vector distance.
+
+FAISS is commonly used in Retrieval-Augmented Generation (RAG) systems.
+
+When a user asks a question, FAISS compares the question embedding with stored document embeddings and returns the nearest matches.

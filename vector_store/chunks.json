@@ -1,0 +1,70 @@
+[
+    {
+        "text": "Embeddings are numerical representations of text.",
+        "source": "embeddings.txt"
+    },
+    {
+        "text": "Machine learning models cannot directly understand text, so text is converted into vectors.",
+        "source": "embeddings.txt"
+    },
+    {
+        "text": "Sentence Transformers are commonly used to generate embeddings.",
+        "source": "embeddings.txt"
+    },
+    {
+        "text": "Similar pieces of text produce embeddings that are close together in vector space.",
+        "source": "embeddings.txt"
+    },
+    {
+        "text": "Embeddings are the foundation of semantic search and RAG applications.",
+        "source": "embeddings.txt"
+    },
+    {
+        "text": "Employee Handbook \n \nWorking Hours \nEmployees are expected to work from 9 AM to 6 PM. \n \nLeave Policy \nEmployees receive 20 paid leave days per year. \n \nRemote Work \nEmployees may work remotely up to three days per week with manager approval. \n \nCode of Conduct \nAll employees must follow company security and confidentiality guidelines. \n \nPerformance Reviews \nPerformance reviews are conducted twice per year.",
+        "source": "employee_handbook.pdf"
+    },
+    {
+        "text": "FAISS stands for Facebook AI Similarity Search.",
+        "source": "faiss.txt"
+    },
+    {
+        "text": "FAISS is a vector database used for similarity search.",
+        "source": "faiss.txt"
+    },
+    {
+        "text": "It stores embeddings and helps retrieve the most relevant information based on vector distance.",
+        "source": "faiss.txt"
+    },
+    {
+        "text": "FAISS is commonly used in Retrieval-Augmented Generation (RAG) systems.",
+        "source": "faiss.txt"
+    },
+    {
+        "text": "When a user asks a question, FAISS compares the question embedding with stored document embeddings and returns the nearest matches.",
+        "source": "faiss.txt"
+    },
+    {
+        "text": "RAG stands for Retrieval-Augmented Generation.",
+        "source": "sample.txt"
+    },
+    {
+        "text": "RAG has two main steps: ingestion and retrieval.",
+        "source": "sample.txt"
+    },
+    {
+        "text": "In ingestion, documents are loaded, split into chunks, converted into embeddings, and stored in a vector database.",
+        "source": "sample.txt"
+    },
+    {
+        "text": "In retrieval, the user question is converted into an embedding, compared with stored document embeddings, and the most relevant chunks are returned.",
+        "source": "sample.txt"
+    },
+    {
+        "text": "FAISS is a vector database used for similarity search.",
+        "source": "sample.txt"
+    },
+    {
+        "text": "Sentence Transformers can convert text into embeddings.",
+        "source": "sample.txt"
+    }
+]
