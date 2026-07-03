@@ -1,3 +1,28 @@
+# Agentic RAG Assistant
+
+Production-style Agentic AI Assistant built with:
+
+- RAG
+- FAISS
+- Gemini
+- ReAct
+- Persistent Memory
+- Supervisor Agent
+- Specialist Agents
+- Evaluation Framework
+
+## Quick Links
+
+- Architecture → ARCHITECTURE.md
+- Interview Guide → INTERVIEW_GUIDE.md
+- Project Log → PROJECT_LOG.md
+- Project Structure → PROJECT_STRUCTURE.md
+- Git Workflow → GIT_WORKFLOW.md
+
+## Architecture
+
+![Architecture](screenshots/architecture.png)
+
 # End-to-End Execution Example
 
 This section demonstrates exactly what happens internally when a user asks a question.
