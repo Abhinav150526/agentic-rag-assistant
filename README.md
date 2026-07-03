@@ -1,6 +1,6 @@
 ## Architecture
 
-![Architecture](screenshots/architecture.png)
+![Architecture](screenshots/architecture.PNG)
 
 # Agentic RAG Assistant
 
