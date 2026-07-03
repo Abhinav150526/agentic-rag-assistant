@@ -1,3 +1,7 @@
+## Architecture
+
+![Architecture](screenshots/architecture.png)
+
 # Agentic RAG Assistant
 
 Production-style Agentic AI Assistant built with:
@@ -18,10 +22,6 @@ Production-style Agentic AI Assistant built with:
 - Project Log → PROJECT_LOG.md
 - Project Structure → PROJECT_STRUCTURE.md
 - Git Workflow → GIT_WORKFLOW.md
-
-## Architecture
-
-![Architecture](ARCHITECTURE.md)
 
 # End-to-End Execution Example
 
