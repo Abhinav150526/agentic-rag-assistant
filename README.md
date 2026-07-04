@@ -1,3 +1,11 @@
+## Live Demo
+
+https://agentic-rag-assistant-aivkv4ekmlrhzrnn6jrjj8.streamlit.app
+
+## GitHub Repository
+
+https://github.com/Abhinav150526/agentic-rag-assistant
+
 ## Architecture
 
 ![Architecture](screenshots/architecture.PNG)
