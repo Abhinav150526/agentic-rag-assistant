@@ -1,3 +1,4 @@
+import os
 import json
 
 MEMORY_PATH = "memory.json"
