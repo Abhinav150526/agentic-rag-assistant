@@ -1998,3 +1998,433 @@ Milestone 24: Deployment & Production Readiness
 Goal:
 
 Prepare the project for GitHub, deployment, and interview demonstration.
+
+---
+
+# Milestone 24: Deployment & Production Readiness
+
+Status: Completed
+
+## Objective
+
+Deploy the Agentic RAG Assistant to a public cloud environment and make it accessible through a live URL.
+
+---
+
+## Deployment Platform
+
+Streamlit Community Cloud
+
+---
+
+## Live Application
+
+```text
+https://agentic-rag-assistant-aivkv4ekmlrhzrnn6jrjj8.streamlit.app
+```
+
+---
+
+## Deployment Process
+
+### Step 1: Prepare Repository
+
+Verified:
+
+- Git repository initialized
+- Source code committed
+- Documentation committed
+- Screenshots committed
+- Vector store committed
+- Requirements file committed
+
+Files verified:
+
+```text
+README.md
+ARCHITECTURE.md
+INTERVIEW_GUIDE.md
+PROJECT_LOG.md
+PROJECT_STRUCTURE.md
+GIT_WORKFLOW.md
+
+app.py
+rag_service.py
+rag_answer.py
+memory_service.py
+tools.py
+evaluation.py
+ingest.py
+retrieve.py
+
+data/
+vector_store/
+screenshots/
+```
+
+---
+
+### Step 2: Configure Streamlit Cloud
+
+Connected GitHub repository:
+
+```text
+agentic-rag-assistant
+```
+
+Selected:
+
+```text
+Branch: main
+Main File: app.py
+```
+
+Configured application secrets:
+
+```toml
+GEMINI_API_KEY="YOUR_API_KEY"
+```
+
+---
+
+### Step 3: Deploy Application
+
+Deployment completed successfully.
+
+Verified:
+
+- Application startup
+- Streamlit UI rendering
+- FAISS index loading
+- Gemini API connectivity
+
+---
+
+# Deployment Issues Encountered
+
+## Issue 1: Missing memory.json
+
+### Error
+
+```text
+FileNotFoundError:
+No such file or directory: 'memory.json'
+```
+
+### Root Cause
+
+Locally:
+
+```text
+memory.json existed
+```
+
+Cloud environment:
+
+```text
+Fresh container
+↓
+memory.json did not exist
+↓
+Application crashed
+```
+
+The application assumed the memory file already existed.
+
+### Fix
+
+Updated:
+
+```python
+memory_service.py
+```
+
+Before:
+
+```python
+def load_memory():
+
+    with open(MEMORY_PATH, "r", encoding="utf-8") as file:
+        return json.load(file)
+```
+
+After:
+
+```python
+def load_memory():
+
+    if not os.path.exists(MEMORY_PATH):
+        return {}
+
+    with open(MEMORY_PATH, "r", encoding="utf-8") as file:
+        return json.load(file)
+```
+
+Added:
+
+```python
+import os
+```
+
+### Result
+
+Application now creates memory storage automatically when needed.
+
+---
+
+## Issue 2: Missing os Import
+
+### Error
+
+```text
+NameError:
+name 'os' is not defined
+```
+
+### Root Cause
+
+Added:
+
+```python
+os.path.exists()
+```
+
+without importing:
+
+```python
+import os
+```
+
+### Fix
+
+Added:
+
+```python
+import os
+```
+
+at the top of:
+
+```python
+memory_service.py
+```
+
+### Result
+
+Memory service works correctly.
+
+---
+
+## Issue 3: Gemini Planner Failure During Deployment
+
+### Observed Behavior
+
+Memory requests returned:
+
+```text
+FINAL
+```
+
+instead of:
+
+```text
+MEMORY_WRITE
+```
+
+or
+
+```text
+MEMORY_READ
+```
+
+### Root Cause
+
+Planner fallback logic:
+
+```python
+if response_text == "ERROR":
+    return "FINAL"
+```
+
+caused the system to terminate when Gemini planning failed.
+
+Possible causes:
+
+- API failure
+- Quota limit
+- Temporary service issue
+
+### Fix
+
+Updated fallback behavior.
+
+Before:
+
+```python
+if response_text == "ERROR":
+    return "FINAL"
+```
+
+After:
+
+```python
+if response_text == "ERROR":
+    return select_route(question)
+```
+
+### Result
+
+System now uses deterministic routing when LLM planning fails.
+
+This improves reliability and fault tolerance.
+
+---
+
+# Production Reliability Improvements
+
+Added support for:
+
+## Missing Files
+
+System no longer crashes when:
+
+```text
+memory.json
+```
+
+is absent.
+
+---
+
+## LLM Failure Recovery
+
+System now supports:
+
+```text
+Gemini Planner
+↓
+Failure
+↓
+Rule-Based Routing
+↓
+Continue Execution
+```
+
+instead of:
+
+```text
+Gemini Planner
+↓
+Failure
+↓
+Application Stops
+```
+
+---
+
+## Cloud Environment Compatibility
+
+Application now handles:
+
+- Fresh deployments
+- Container restarts
+- Missing runtime files
+- Temporary API failures
+- LLM quota issues
+
+---
+
+# Lessons Learned
+
+## Local Environment ≠ Production Environment
+
+Code that works locally may fail after deployment because:
+
+- Files may not exist
+- Paths may differ
+- APIs may behave differently
+- Containers may restart
+
+---
+
+## Build Defensive Systems
+
+Production systems should always assume:
+
+- Files may be missing
+- APIs may fail
+- Quotas may be exceeded
+- Services may be unavailable
+
+---
+
+## Fallback Logic Matters
+
+Agent systems should have:
+
+```text
+Primary Path
+↓
+LLM Planning
+
+Fallback Path
+↓
+Deterministic Routing
+```
+
+This ensures the application continues functioning even when AI services are unavailable.
+
+---
+
+# Deployment Outcome
+
+Successfully deployed:
+
+```text
+Agentic RAG Assistant
+```
+
+Features verified:
+
+```text
+RAG                           ✅
+FAISS Retrieval               ✅
+Gemini Integration            ✅
+Tool Calling                  ✅
+Memory                        ✅
+ReAct Workflow                ✅
+Supervisor Agent              ✅
+Specialist Agents             ✅
+Evaluation Framework          ✅
+Streamlit Deployment          ✅
+```
+
+---
+
+# Milestone 24 Status
+
+Completed ✅
+
+The project has now completed the full software lifecycle:
+
+```text
+Idea
+↓
+Design
+↓
+Development
+↓
+Testing
+↓
+Documentation
+↓
+Version Control
+↓
+GitHub
+↓
+Deployment
+↓
+Production Readiness
+```
+
+This transformed the project from a local prototype into a publicly accessible AI application.
