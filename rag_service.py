@@ -338,7 +338,7 @@ def react_step(question, observations):
     print("PLANNER RESPONSE:", response_text)
 
     if response_text == "ERROR":
-        return select_route(question)
+        return "FINAL"
 
     return response_text.strip().upper()
 
