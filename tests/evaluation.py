@@ -1,4 +1,4 @@
-from rag_service import answer_question
+from src.core.rag_service import answer_question
 
 TEST_CASES = [
     {

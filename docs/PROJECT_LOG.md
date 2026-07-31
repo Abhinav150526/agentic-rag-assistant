@@ -1848,7 +1848,7 @@ Created `evaluation.py`.
 It imports:
 
 ```python
-from rag_service import answer_question
+from src.core.rag_service import answer_question
 ```
 
 Defined test cases:

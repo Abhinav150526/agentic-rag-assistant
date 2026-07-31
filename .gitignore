@@ -26,3 +26,12 @@ installed_packages.txt
 
 # Local memory
 memory.json
+
+# Vector database
+vector_store/
+
+# Python cache (recursive)
+**/__pycache__/
+
+# Jupyter notebooks (if you use them later)
+.ipynb_checkpoints/

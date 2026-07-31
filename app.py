@@ -1,5 +1,5 @@
 import streamlit as st
-from rag_service import answer_question
+from src.core.rag_service import answer_question
 
 st.set_page_config(
     page_title="Company Knowledge Assistant",
